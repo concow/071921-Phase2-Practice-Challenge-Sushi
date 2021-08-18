@@ -1,20 +1,26 @@
 import React from "react";
 
-function Sushi(props) {
+//trouble destructuring in argument. props work though
+function Sushi({ id, name, image, price }) {
+  //const [name, image, price] = sushi
+  function handleSushi(e) {
+    //console.log(e.target.remove())
+    e.target.remove()
+  }
   return (
     <div className="sushi">
-      <div className="plate" onClick={/* Give me a callback! */ null}>
+      <div className="plate" onClick={handleSushi}>
         {/* Tell me if this sushi has been eaten! */}
         {false ? null : (
           <img
-            src={/* Give me an image source! */ null}
-            alt={/* Give me a name! */ "Sushi"}
+            src={image}
+            alt={name}
             width="100%"
           />
         )}
       </div>
       <h4 className="sushi-details">
-        {/* Give me a name! */} - ${/* Give me a price! */}
+        {name} - ${price}
       </h4>
     </div>
   );
